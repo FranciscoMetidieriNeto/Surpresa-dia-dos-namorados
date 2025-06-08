@@ -1,0 +1,458 @@
+/* Definição das variáveis de cor para os temas */
+:root {
+    --body-bg: #fce4ec;
+    --app-bg: #ffffff;
+    --text-color: #262626;
+    --secondary-text-color: #8e8e8e;
+    --heading-color-1: #e91e63;
+    --heading-color-2: #d81b60;
+    --border-color: #dbdbdb;
+    --video-bg: #f8f9fa;
+    --profile-border: #e91e63;
+    --overlay-bg: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode {
+    --body-bg: #121212;
+    --app-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #a0a0a0;
+    --heading-color-1: #f06292;
+    --heading-color-2: #ec407a;
+    --border-color: #333333;
+    --video-bg: #2a2a2a;
+    --profile-border: #f06292;
+    --overlay-bg: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos Gerais */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container {
+    max-width: 450px;
+    width: 100%;
+    background-color: var(--app-bg);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+/* Interruptor de Tema */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.theme-switch-icon {
+    font-size: 1.5rem;
+}
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #7e57c2;
+}
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+.slider.round { border-radius: 34px; }
+.slider.round:before { border-radius: 50%; }
+
+/* Seções do App */
+.message-section {
+    padding: 20px 25px;
+    text-align: center;
+}
+h1 {
+    color: var(--heading-color-1);
+    font-size: 1.8em;
+}
+h2 {
+    color: var(--heading-color-2);
+    font-size: 1.4em;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+/* Carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+.carousel-slide { display: flex; transition: transform 0.5s ease-in-out; }
+.carousel-slide img { width: 100%; height: 450px; object-fit: cover; }
+.prev-btn, .next-btn {
+    position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.4);
+    color: white; border: none; padding: 10px; border-radius: 50%; cursor: pointer;
+    font-size: 20px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Post do Instagram */
+.instagram-post-container {
+    background-color: var(--app-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+.post-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; }
+.user-info { display: flex; align-items: center; gap: 10px; }
+.user-info div { display: flex; flex-direction: column; }
+.profile-pic {
+    width: 40px; height: 40px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--profile-border);
+}
+.username { font-weight: 700; font-size: 14px; display: flex; align-items: center; }
+.verified-badge { background-color: #0095f6; width: 12px; height: 12px; border-radius: 50%; margin-left: 5px; display: inline-block; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M6.25 2.1L3.5 4.85 2.25 3.6 1.75 4.1 3.5 5.85 6.75 2.6z' fill='white'/%3e%3c/svg%3e"); background-size: 8px; background-position: center; background-repeat: no-repeat; }
+.location { font-size: 12px; color: var(--secondary-text-color); }
+.follow-button { background-color: #0095f6; color: white; border: none; border-radius: 5px; padding: 5px 10px; font-weight: bold; font-size: 12px; cursor: pointer; }
+.post-image img { width: 100%; display: block; height: auto; }
+.post-footer { padding: 0 15px; }
+.post-actions { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+.actions-left, .actions-right { display: flex; gap: 15px; }
+.post-actions .icon { font-size: 28px; cursor: pointer; font-variation-settings: 'FILL' 0; }
+.post-actions .icon:first-child { color: #ff3040; font-variation-settings: 'FILL' 1; }
+.post-likes { font-weight: 700; font-size: 14px; padding: 5px 0; }
+.post-caption { font-size: 14px; line-height: 1.3; }
+.post-caption p { margin: 0; }
+.post-comments-link, .post-timestamp { color: var(--secondary-text-color); font-size: 13px; padding-top: 8px; }
+.post-timestamp { font-size: 11px; padding-bottom: 15px; padding-top: 5px; letter-spacing: 0.2px; }
+
+/* --- ESTILOS DA CARTA ANIMADA --- */
+.letter-section {
+    padding: 30px 25px;
+    text-align: center;
+    background-color: var(--app-bg);
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+.letter-section h2 {
+    border-top: none;
+    padding-top: 0;
+}
+.envelope-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    perspective: 800px;
+}
+.envelope {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff9ab4;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+.flap.front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to bottom, #ff9ab4, #ff87a6);
+    clip-path: polygon(0 100%, 100% 100%, 50% 0%);
+    z-index: 3;
+}
+.flap.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: #ff87a6;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 4;
+}
+.seal {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    z-index: 5;
+    transition: opacity 0.5s ease-in-out;
+}
+.letter {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 95%;
+    background: #fffaf0;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: auto;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+                width 0.6s, height 0.6s;
+}
+.letter-text {
+    padding: 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    text-align: left;
+}
+
+/* Efeito de Overlay (fundo escurecido) */
+.letter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    opacity: 0;
+    pointer-events: none; /* Não pode ser clicado quando invisível */
+    transition: opacity 0.5s;
+    z-index: 99;
+}
+
+/* --- ANIMAÇÃO DE ABERTURA E FECHAMENTO --- */
+.letter-section.show-letter .letter-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+.letter-section.show-letter .envelope {
+    transform: scale(0.9);
+}
+.letter-section.show-letter .flap.top {
+    transform: rotateX(180deg);
+}
+.letter-section.show-letter .seal {
+    opacity: 0;
+}
+.letter-section.show-letter .letter {
+    /* --- CORREÇÃO APLICADA --- */
+    position: fixed; /* ESSENCIAL: Posição relativa à tela, não ao site */
+    top: 50%;        /* Move o topo do elemento para o meio da tela */
+    left: 50%;       /* Move a esquerda do elemento para o meio da tela */
+
+    /* Centraliza perfeitamente e aumenta um pouco */
+    transform: translate(-50%, -50%) scale(1.1);
+
+    width: 90vw;
+    max-width: 420px; /* Largura máxima em telas grandes */
+    height: 80vh;    /* Altura máxima */
+    z-index: 100;
+    cursor: grab;
+}
+
+/* Vídeo do YouTube */
+.video-container {
+    text-align: center;
+    padding: 20px 15px;
+    background-color: var(--video-bg);
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+.video-container h2 {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+.youtube-responsive-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Proporção 16:9 */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.youtube-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- ESTILOS DO VÍDEO LOCAL --- */
+.local-video-section {
+    padding: 30px 15px;
+    text-align: center;
+    background-color: var(--app-bg);
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+
+.local-video-section h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-bottom: 20px;
+}
+
+.video-wrapper video {
+    width: 100%; /* Faz o vídeo ocupar todo o espaço do container */
+    max-width: 100%;
+    height: auto; /* Mantém a proporção correta */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* --- ESTILOS DA MENSAGEM FINAL COM CORAÇÕES PULSANTES --- */
+.final-message-section {
+    position: relative; /* Essencial para posicionar os corações dentro */
+    padding: 40px 25px;
+    /*background-color: #6a1b9a;*/
+    overflow: hidden; /* Garante que os corações não ultrapassem as bordas */
+}
+
+.final-message-content {
+    position: relative; /* Para garantir que o texto fique na frente */
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.final-message-content h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.final-message-content p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.final-heart {
+    font-size: 2.5em;
+    color: #fce4ec;
+    margin-top: 20px;
+    animation: heart-beat 1.5s infinite ease-in-out;
+}
+
+.hearts-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* A forma do coração é criada com CSS puro */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #9c27b0; /* Cor dos corações do fundo */
+    opacity: 0.4;
+    transform: rotate(-45deg);
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #9c27b0;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+/* Posicionando cada coração de forma "sortida" */
+.heart:nth-child(1) { top: 20%; left: 25%; animation-delay: 0s; transform: scale(0.8) rotate(-45deg); }
+.heart:nth-child(2) { top: 45%; left: 10%; animation-delay: 0.5s; transform: scale(1.2) rotate(-45deg); }
+.heart:nth-child(3) { top: 10%; left: 80%; animation-delay: 1s; transform: scale(0.7) rotate(-45deg); }
+.heart:nth-child(4) { top: 80%; left: 90%; animation-delay: 0.2s; transform: scale(1.5) rotate(-45deg); }
+.heart:nth-child(5) { top: 60%; left: 50%; animation-delay: 1.5s; transform: scale(0.9) rotate(-45deg); }
+.heart:nth-child(6) { top: 90%; left: 20%; animation-delay: 0.8s; transform: scale(1.1) rotate(-45deg); }
+.heart:nth-child(7) { top: 5%; left: 40%; animation-delay: 1.2s; transform: scale(0.6) rotate(-45deg); }
+.heart:nth-child(8) { top: 75%; left: 65%; animation-delay: 0.4s; transform: scale(1.3) rotate(-45deg); }
+
+/* Animação de pulsar para os corações do fundo */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(var(--scale, 1)) rotate(-45deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(calc(var(--scale, 1) * 1.1)) rotate(-45deg);
+        opacity: 0.6;
+    }
+}
+
+/* Animação do coração principal pulsando (já deve existir, mas garantindo) */
+@keyframes heart-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+
+}
