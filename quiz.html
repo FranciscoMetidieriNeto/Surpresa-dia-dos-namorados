@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Meu Amor</title>
+    
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" />
+</head>
+<body>
+
+    <div class="app-container">
+
+        <a href="index.html" class="back-button">❮</a>
+
+        <div class="theme-switch-wrapper">
+            <span class="theme-switch-icon">☀️</span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <span class="theme-switch-icon">🌙</span>
+        </div>
+
+        <div class="message-section">
+            <h1>Quiz: Testando sua Memória</h1>
+            <p>Selecione uma resposta e clique em "Verificar" para ver se você acertou. Boa sorte, meu amor!</p>
+        </div>
+
+        <div class="quiz-container">
+            <h2>Quiz 1: Nosso Cantinho Especial</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.641556103438!2d-48.810678925566094!3d-21.59586659233749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bed1fb1eedbc6f%3A0xe75374c4b96000e7!2sRua%20Pero%20Neto%2C%20664%20-%20Jardim%20Primavera%2C%20It%C3%A1polis%20-%20SP%2C%2014900-000!5e1!3m2!1spt-BR!2sbr!4v1749662187018!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>Pergunta:</strong> O que aconteceu neste local?</p>
+                <div class="quiz-options">
+                    <div class="option-container">
+                        <input type="radio" id="q1-op1" name="quiz1" value="incorrect">
+                        <label for="q1-op1">Pedido de namoro</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="q1-op2" name="quiz1" value="correct" data-correct="true">
+                        <label for="q1-op2">Primeiro beijo</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="q1-op3" name="quiz1" value="incorrect">
+                        <label for="q1-op3">Primeiro eu te amo</label>
+                    </div>
+                </div>
+                
+                <button class="submit-btn">Verificar Resposta</button>
+                <button class="retry-btn">Tentar Novamente</button>
+                <p class="quiz-result"></p>
+
+            </div>
+        </div>
+
+        <div class="quiz-container">
+            <h2>Quiz 2: Testando sua memória</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1528.841225965557!2d-48.83577147756441!3d-21.593930576449353!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1749667327883!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="quiz-question">
+                <p><strong>Pergunta:</strong> O que é aqui?</p>
+                 <div class="quiz-options">
+                    <div class="option-container">
+                        <input type="radio" id="q2-op1" name="quiz2" value="incorrect">
+                        <label for="q2-op1">Minha casa</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="q2-op2" name="quiz2" value="incorrect">
+                        <label for="q2-op2">Casa do meu namorado lindo e maravilhoso</label>
+                    </div>
+                    <div class="option-container">
+                        <input type="radio" id="q2-op3" name="quiz2" value="correct" data-correct="true">
+                        <label for="q2-op3">Vista mais bonita da cidade</label>
+                    </div>
+                     <div class="option-container">
+                        <input type="radio" id="q2-op4" name="quiz2" value="incorrect">
+                        <label for="q2-op4">Local onde conversamos e ficamos olhando a cidade</label>
+                    </div>
+                </div>
+
+                <button class="submit-btn">Verificar Resposta</button>
+                <button class="retry-btn">Tentar Novamente</button>
+                <p class="quiz-result"></p>
+
+            </div>
+        </div>
+        
+        <div class="final-message-section">
+            <div class="final-message-content">
+                <h3>E aí, acertou?</h3>
+                <p>Independente do resultado, o que importa são os momentos que vivemos e os que ainda vamos viver. Te amo!</p>
+            </div>
+        </div>
+
+        <div class="navigation-section">
+             <a href="declaracao.html" class="nav-button">Ver Declaração Final</a>
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
