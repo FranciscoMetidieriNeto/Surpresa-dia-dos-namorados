@@ -357,14 +357,12 @@ h2 {
 .final-message-section {
     position: relative;
     padding: 40px 25px;
-    background-color: #6a1b9a;
     overflow: hidden;
 }
 .final-message-content {
     position: relative;
     z-index: 2;
     text-align: center;
-    color: white;
 }
 .final-message-content h3 {
     font-size: 1.8em;
